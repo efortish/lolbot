@@ -1,5 +1,10 @@
+const API_URL =
+  import.meta.env.PROD
+    ? "https://lolbot-o5dx.onrender.com"
+    : "http://localhost:3000";
+
 export async function chatMessage(message: string): Promise<string> {
-  const response = await fetch('/api/chat', {
+  const response = await fetch(`${API_URL}/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ message }),
@@ -14,7 +19,7 @@ export async function chatMessage(message: string): Promise<string> {
 }
 
 export async function echoMessage(message: string): Promise<string> {
-  const response = await fetch('/api/echo', {
+  const response = await fetch(`${API_URL}/echo`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ message }),
