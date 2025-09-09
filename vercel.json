@@ -1,22 +1,35 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "backend/src/main.ts",
-      "use": "@vercel/node"
+      "src": "backend/package.json",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["backend/**"]
+      }
     },
     {
       "src": "frontend/package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "cd ../frontend && npm install && npm run build"
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/src/main.ts"
+      "dest": "backend/index.js"
     },
     {
       "src": "/(.*)",
       "dest": "frontend/dist/$1"
     }
-  ]
+  ],
+  "functions": {
+    "backend/index.js": {
+      "includeFiles": "backend/**"
+    }
+  }
 }
