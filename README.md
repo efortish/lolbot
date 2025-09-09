@@ -4,7 +4,7 @@ A NestJS + React chatbot powered by Google Gemini that answers questions about L
 
 ## Project Structure
 ```
-pruebanest/
+lolbot
 ├── backend/          # NestJS API with Gemini integration
 ├── frontend/         # React chat interface
 ├── vercel.json       # Deployment configuration
@@ -18,35 +18,11 @@ pruebanest/
 - npm
 - Google Gemini API key ([Get it here](https://aistudio.google.com/app/apikey))
 
-### Backend
-```bash
-cd backend
-npm install
-cp .env.example .env  # MUST: Add your LLM_API_KEY
-npm run start:dev     # Backend runs on http://localhost:3000
-```
-
-### Frontend
-```bash
-cd frontend
-npm install
-npm run dev          # Frontend runs on http://localhost:5173
-```
 
 ### Access the Application
-- **Frontend:** Open http://localhost:5173 in your browser
-- **Backend API:** Available at http://localhost:3000
+- **Frontend:** Available https://lolbot-8yhh8tvaq-kevs-projects-095cbcff.vercel.app/ 
+- **Backend API:** Available at https://lolbot-o5dx.onrender.com/api/chat
 
-### Local Development
-```bash
-# Terminal 1 - Backend
-cd backend && npm run start:dev
-
-# Terminal 2 - Frontend  
-cd frontend && npm run dev
-
-# Then open http://localhost:5173 to use the chatbot
-```
 
 ## Sample Questions
 
@@ -64,7 +40,7 @@ cd frontend && npm run dev
 Create `.env` in the backend folder:
 ```
 LLM_API_KEY=your_gemini_api_key_here
-LLM_MODEL=gemini-1.5-flash
+LLM_MODEL=gemini-2.5-flash
 LLM_API_URL=https://generativelanguage.googleapis.com/v1beta/models
 ```
 
@@ -73,7 +49,7 @@ LLM_API_URL=https://generativelanguage.googleapis.com/v1beta/models
 - **Backend:** NestJS, TypeScript, Google Gemini API, Axios
 - **Frontend:** React 18, TypeScript, Vite
 - **Testing:** Jest with mocked LLM calls
-- **Deployment:** Vercel
+- **Deployment:** Vercel for frontend and Render for backend
 
 ## Features
 
@@ -90,10 +66,3 @@ cd backend
 npm test                    # Run all tests
 npm test llm.service.spec   # Run LLM service tests only
 ```
-
-## Ports
-
-- **Backend:** 3000 (NestJS API)
-- **Frontend:** 5173 (Vite dev server)
-
-Make sure both ports are available before starting the development servers.
