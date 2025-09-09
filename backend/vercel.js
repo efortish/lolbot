@@ -1,4 +1,3 @@
-// filepath: c:\Users\Usuario\OneDrive\Escritorio\pruebanest\backend\vercel.js
 const { NestFactory } = require('@nestjs/core');
 const { AppModule } = require('./dist/app.module');
 const { ValidationPipe } = require('@nestjs/common');
