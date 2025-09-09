@@ -5,7 +5,7 @@
       "src": "backend/vercel.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["backend/dist/**", "backend/node_modules/**"]
+        "includeFiles": ["backend/dist/**"]
       }
     },
     {
@@ -25,5 +25,10 @@
       "src": "/(.*)",
       "dest": "frontend/dist/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "backend/vercel.js": {
+      "includeFiles": "backend/dist/**"
+    }
+  }
 }
